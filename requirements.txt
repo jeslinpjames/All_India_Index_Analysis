@@ -1,0 +1,6 @@
+pandas
+plotly
+streamlit
+jinja2 
+weasyprint
+matplotlib
