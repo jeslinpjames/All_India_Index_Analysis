@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All India Index Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .section { margin-bottom: 20px; }
+        h2 { color: #333; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px 12px; border: 1px solid #ddd; }
+        .chart { text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>All India Index Report</h1>
+    <p>Generated on: {{ generated_date }}</p>
+
+    <div class="section">
+        <h2>Inflation Summary</h2>
+        <p>Monthly and Annual inflation trends, along with high-performing categories.</p>
+        <table>
+            <tr><th>Sector</th><th>Average Monthly Inflation (%)</th><th>Average Annual Inflation (%)</th></tr>
+            {% for sector, data in inflation_summary.items() %}
+            <tr>
+                <td>{{ sector }}</td>
+                <td>{{ data['monthly'] }}</td>
+                <td>{{ data['annual'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="section chart">
+        <h2>General Index Trends</h2>
+        <img src="{{ general_index_chart }}" alt="General Index Trend Chart">
+    </div>
+
+    <!-- Additional sections as needed -->
+</body>
+</html>
